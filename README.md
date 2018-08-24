@@ -34,7 +34,7 @@
 
 > **###5.  Questions on Hibernate**
 Question | Answers
--------- | -------------
+-------- | -------
 1. How to listen on multiple end points, when mapping with controllers | {"/", "/person"} or "*"
 
 First Header | Second Header
