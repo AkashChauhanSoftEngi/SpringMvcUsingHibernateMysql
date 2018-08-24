@@ -39,7 +39,7 @@ How to listen on multiple end points, when mapping with controllers | {"/", "/pe
 
 Question | Answer
 -------- | ------
-Content from cell 1 | Content from cell 2
+How to listen on multiple end points, when mapping with controllers? | {"/", "/person"} or "*".
 Content in the first column | Content in the second column
 
 
