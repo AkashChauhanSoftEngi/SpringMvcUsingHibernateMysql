@@ -33,15 +33,9 @@
 * Must use @Transactional, preferably with dao classes/Methods {bind sessions}
 
 > **###5.  Questions on Hibernate**
-```diff
-- Hello
-- World
-```
-
-- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) 'Hello'
-- ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) 'World'
-- ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) 'SampleTest'
-
+Question | Answers
+------------ | -------------
+1. How to listen on multiple end points, when mapping with controllers | {"/", "/person"} or "*"
 
 
 
