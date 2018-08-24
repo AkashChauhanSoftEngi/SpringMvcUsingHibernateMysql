@@ -32,16 +32,9 @@
 * Must creat HibernateTransactionManager bean in IOC {Spring Internal use}
 * Must use @Transactional, preferably with dao classes/Methods {bind sessions}
 
-> **###5.  Questions on Hibernate**
-Question | Answer
--------- | ------
-How to listen on multiple end points, when mapping with controllers | {"/", "/person"} or "*"
-
-Question | Answer
--------- | ------
-How to listen on multiple end points, when mapping with controllers? | {"/", "/person"} or "*".
-Content in the first column | Content in the second column
-
+**###5.  Questions on Hibernate**
+> How to listen on multiple end points, when mapping with controllers
+- {"/", "/person"} or "*"
 
 
 
