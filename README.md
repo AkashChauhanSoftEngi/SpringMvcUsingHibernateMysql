@@ -34,7 +34,7 @@
 
 > **###5.  Questions on Hibernate**
 ```diff
-+ Hello
+- Hello
 - World
 ```
 
