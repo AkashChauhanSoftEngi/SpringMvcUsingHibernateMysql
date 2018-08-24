@@ -40,23 +40,23 @@
 > Why we need to set hibernate.dialect = org.hibernate.dialect.MySQLDialect
 * Must Needed for converting hibernate query to mysql query
 ```java
-hibernate.dialect = org.hibernate.dialect.MySQLDialect
-hibernate.show_sql = true
-hibernate.format_sql = true
+	hibernate.dialect = org.hibernate.dialect.MySQLDialect
+	hibernate.show_sql = true
+	hibernate.format_sql = true
 ```
 
 > What is DataSource
 * Have details of the connetions, responsible for managing connections.
 ```java
-    @Bean
-    public DataSource dataSource() {
+    	@Bean
+    	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName(environment.getProperty("jdbc.driverClassName"));
 		dataSource.setUrl(environment.getProperty("jdbc.url"));
 		dataSource.setUsername(environment.getProperty("jdbc.username"));
 		dataSource.setPassword(environment.getProperty("jdbc.password"));
 		return dataSource;
-	}
+    	}
 ```
 
 > Differences between DriverManagerDataSource and BasicDataSource API, for creating DataSource
@@ -66,7 +66,7 @@ hibernate.format_sql = true
 > Why we need to LocalSessionFactoryBean.setPackagesToScan("Model classes to map with tables")?
 * if we do not set this, it will not map model classes with database tables. {later we must use @Entity annotation as well}
 ```java
-LocalSessionFactoryBean.setPackagesToScan(new String[]{"model package location"});
+	LocalSessionFactoryBean.setPackagesToScan(new String[]{"model package location"});
 ```
 
 > Why we need to use @EnableTransactionManagement with Hibernate configuration file?
@@ -74,14 +74,11 @@ LocalSessionFactoryBean.setPackagesToScan(new String[]{"model package location"}
 * Must use @EnableTransactionManagement with hibernate configuration file
 * Error: org.hibernate.HibernateException: No Session found for current thread
 ```java
-@Configuration
-@EnableTransactionManagement
-@ComponentScan(basePackages="spring.project")
-@PropertySource(value = { "classpath:application.properties" })
-public class HibernateConfiguration {
-...........................
-...........................
-}
+	@Configuration
+	@EnableTransactionManagement
+	@ComponentScan(basePackages="spring.project")
+	@PropertySource(value = { "classpath:application.properties" })
+	public class HibernateConfiguration {}
 ```
 
 > Why we need to create HibernateTransactionManager bean in IOC?
@@ -89,13 +86,13 @@ public class HibernateConfiguration {
 * Need to create a bean in IOC for this interface, for example using HibernateTransactionManager and setSessionFactory(SessionFactory)
 * It is a internal need of Spring to read PlatformTransactionManager implementation from IOC to manage commit, rollback and Transaction Management work to be handlled
 ```java
-    @Bean
-    @Autowired
-    public HibernateTransactionManager transactionManager(SessionFactory s) {
-       HibernateTransactionManager txManager = new HibernateTransactionManager();
-       txManager.setSessionFactory(s);
-       return txManager;
-    }
+    	@Bean
+    	@Autowired
+    	public HibernateTransactionManager transactionManager(SessionFactory s) {
+       		HibernateTransactionManager txManager = new HibernateTransactionManager();
+       		txManager.setSessionFactory(s);
+       		return txManager;
+    	}
 ```
 
 > Why we need to use @Transactional with serviceImpl, dao, daoImpl classe/Interface?
@@ -105,8 +102,7 @@ public class HibernateConfiguration {
 * Wherever there is a chance of session creation must use @Transactional with those dao classes
 * Error: org.hibernate.HibernateException: No Session found for current thread
 ```java
-@Repository
-@Transactional
-public class PersonDaoImpl implements PersonDao {
-}
+	@Repository
+	@Transactional
+	public class PersonDaoImpl implements PersonDao {}
 ```
