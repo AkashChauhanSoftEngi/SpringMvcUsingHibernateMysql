@@ -34,7 +34,48 @@
 
 **###5.  Questions on Hibernate**
 > How to listen on multiple end points, when mapping with controllers
-- {"/", "/person"} or "*"
+* {"/", "/person"} or "*"
 
+> Why we need to set hibernate.dialect = org.hibernate.dialect.MySQLDialect
+* Must Needed for converting hibernate query to mysql query
+```java
+```
 
+> What is DataSource
+* Have details of the connetions, responsible for managing connections.
+```java
+```
 
+> Differences between DriverManagerDataSource and BasicDataSource API, for creating DataSource
+* This class is not an actual connection pool; it does not actually pool Connections. It just serves as simple replacement for a full-blown connection pool, implementing the same standard interface, but creating new Connections on every call.
+* In other words, it may be OK for tests but in real application use Apache DBCP
+```java
+```
+
+> Why we need to LocalSessionFactoryBean.setPackagesToScan("Model classes to map with tables")?
+* if we do not set this, it will not map model classes with database tables. {later we must use @Entity annotation as well}
+```java
+```
+
+> Why we need to use @EnableTransactionManagement with Hibernate configuration file?
+* Session will not be created/managed by Session manager {HibernateTransactionManager}
+* Must use @EnableTransactionManagement with hibernate configuration file
+* Error: org.hibernate.HibernateException: No Session found for current thread
+```java
+```
+
+> Why we need to create HibernateTransactionManager bean in IOC?
+* org.springframework.transaction.PlatformTransactionManager iterface requires any implementations in IOC to Perform Transaction Manager
+* Need to create a bean in IOC for this interface, for example using HibernateTransactionManager and setSessionFactory(SessionFactory)
+* It is a internal need of Spring to read PlatformTransactionManager implementation from IOC to manage commit, rollback and Transaction Management work to be handlled
+```java
+```
+
+> Why we need to use @Transactional with serviceImpl, dao, daoImpl classe/Interface?
+* We must require to add @Transactional with service or dao classes or interfaces to build a session for transection
+* Not with Dao interface, service interface and classes are okay, dao class is also okay, even on dao method is also okay
+* Thumb rule, use @Transactional with dao classes or methods
+* Wherever there is a chance of session creation must use @Transactional with those dao classes
+* Error: org.hibernate.HibernateException: No Session found for current thread
+```java
+```
