@@ -26,13 +26,21 @@
 * Hibernate Jars {hibernate-entitymanager, hibernate-core, for exa. 4.3.5.Final version}
 * You migth get an session error if old version of mysql connector is being used
 ```diff
-* A) Must create hibernate property and set hibernate.dialect = org.hibernate.dialect.xx {xx:-> MySQLDialect}
++ A) Must create hibernate property and set hibernate.dialect = org.hibernate.dialect.xx {xx:-> MySQLDialect}
 ```
-* There must be a DataSource in IOC, for connection management {LocalSessionFactoryBean}
-* Must create a session factory, example: LocalSessionFactoryBean {Managing connection, provides CRUD and extra fun}
+```diff
++ B) There must be a DataSource in IOC, for connection management {LocalSessionFactoryBean}
+```
+```diff
++ C) Must create a session factory, example: LocalSessionFactoryBean {Managing connection, provides CRUD and extra fun}
+```
 * Must set LocalSessionFactoryBean.setPackagesToScan("package: Model classes to map with tables")
-* Must use @EnableTransactionManagement with Hibernate configuration class
-* Must creat HibernateTransactionManager bean in IOC {Spring Internal use}
+```diff
++ D) Must use @EnableTransactionManagement with Hibernate configuration class
+```
+```diff
++ Must creat HibernateTransactionManager bean in IOC {Spring Internal use}
+```
 * Must use @Transactional, preferably with dao classes/Methods {bind sessions}
 * Spring Hibernate provides: 1) Lazy loading[when needed], 2) Eager fetching[Grab entire object], 3) Cascading{change in one table riflect in other table as well} 
 
