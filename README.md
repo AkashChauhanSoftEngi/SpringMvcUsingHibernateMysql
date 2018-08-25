@@ -27,7 +27,7 @@
 * You migth get an session error if old version of mysql connector is being used
 * Must set hibernate.dialect = org.hibernate.dialect.xx {xx:-> MySQLDialect}
 * There must be a DataSource in IOC, for connection management {LocalSessionFactoryBean}
-* Must create a session factory, example: LocalSessionFactoryBean
+* Must create a session factory, example: LocalSessionFactoryBean {Managing connection, provides CRUD and extra fun}
 * Must set LocalSessionFactoryBean.setPackagesToScan("package: Model classes to map with tables")
 * Must use @EnableTransactionManagement with Hibernate configuration class
 * Must creat HibernateTransactionManager bean in IOC {Spring Internal use}
