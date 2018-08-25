@@ -32,6 +32,7 @@
 * Must use @EnableTransactionManagement with Hibernate configuration class
 * Must creat HibernateTransactionManager bean in IOC {Spring Internal use}
 * Must use @Transactional, preferably with dao classes/Methods {bind sessions}
+* Spring Hibernate provides: 1) Lazy loading[when needed], 2) Eager fetching[Grab entire object], 3) Cascading{change in one table riflect in other table as well} 
 
 **###5.  Questions on Spring- Hibernate**
 > How to listen on multiple end points, when mapping with controllers
