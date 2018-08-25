@@ -25,7 +25,9 @@
 > **###4.  Important Points to keep in mind**
 * Hibernate Jars {hibernate-entitymanager, hibernate-core, for exa. 4.3.5.Final version}
 * You migth get an session error if old version of mysql connector is being used
-* Must set hibernate.dialect = org.hibernate.dialect.xx {xx:-> MySQLDialect}
+```diff
+* A) Must create hibernate property and set hibernate.dialect = org.hibernate.dialect.xx {xx:-> MySQLDialect}
+```
 * There must be a DataSource in IOC, for connection management {LocalSessionFactoryBean}
 * Must create a session factory, example: LocalSessionFactoryBean {Managing connection, provides CRUD and extra fun}
 * Must set LocalSessionFactoryBean.setPackagesToScan("package: Model classes to map with tables")
