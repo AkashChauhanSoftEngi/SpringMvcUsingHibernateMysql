@@ -122,3 +122,7 @@
 > First level(Session Level) and Second level(Session Factory level) cache, use of EhCache in Hibernate
 * Reference : https://javarevisited.blogspot.com/2017/03/difference-between-first-and-second-level-cache-in-Hibernate.html
 * Important Questions: http://www.java67.com/2016/02/top-20-hibernate-interview-questions.html
+
+> Disable Lazy Loading in Hibernate
+* https://stackoverflow.com/questions/5479140/disable-lazy-loading-in-hibernate
+
